@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/MemoryGame.unity
+    guid: bd940b6a1e8df9042a207b7e60500649
+  - enabled: 1
+    path: Assets/Scenes/MathfGame.unity
+    guid: 96fb74fb8522e1a4f8a91cb9ea1adee8
+  - enabled: 1
+    path: Assets/Scenes/ImageGame.unity
+    guid: dce1c4f510472d84190f2ba5a025a91f
+  m_configObjects: {}
