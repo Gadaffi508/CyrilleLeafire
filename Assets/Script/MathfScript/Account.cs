@@ -17,6 +17,10 @@ public class Account : MonoBehaviour
     private int FirstNumber;
     private int SecondNumber;
 
+    public GameObject Levelmenu;
+
+    public Text LevelScoreText;
+
     string[] operations = new string[4]
     {
         "-",
@@ -25,9 +29,12 @@ public class Account : MonoBehaviour
         "/"
     };
 
+    ButtonManager btnManager;
+
     private void Start()
     {
         RandomQueations();
+        btnManager = GetComponent<ButtonManager>();
     }
 
     public void RandomQueations()
@@ -78,7 +85,16 @@ public class Account : MonoBehaviour
 
     private void Update()
     {
-        Counter -= Time.deltaTime;
-        TimeText.text = "Time : " + Counter.ToString("00");
+        if (Counter <= 0)
+        {
+            Levelmenu.SetActive(true);
+            Counter = 0;
+            LevelScoreText.text = "Score : " + btnManager.score.ToString();
+        }
+        else
+        {
+            Counter -= Time.deltaTime;
+            TimeText.text = "Time : " + Counter.ToString("00");
+        }
     }
 }

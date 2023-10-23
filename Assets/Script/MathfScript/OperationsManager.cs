@@ -16,6 +16,11 @@ public class OperationsManager : MonoBehaviour
 
     private int FirstNumber;
     private int SecondNumber;
+    public string selectedOperation;
+
+    public GameObject Levelmenu;
+    public Text LevelScoreText;
+    OperationsButtonManager ButtonManager;
 
     string[] operations = new string[4]
     {
@@ -27,7 +32,7 @@ public class OperationsManager : MonoBehaviour
 
     private void Start()
     {
-        RandomQueations();
+        ButtonManager = GetComponent<OperationsButtonManager>();
     }
 
     public void RandomQueations()
@@ -46,9 +51,9 @@ public class OperationsManager : MonoBehaviour
 
         int randomOperationIndex = Random.Range(0, 4);
 
-        string selectedOperation = operations[randomOperationIndex];
+        selectedOperation = operations[randomOperationIndex];
 
-        OperationText.text = operations[randomOperationIndex].ToString();
+        //OperationText.text = operations[randomOperationIndex].ToString();
 
         int result = 0;
 
@@ -80,7 +85,16 @@ public class OperationsManager : MonoBehaviour
 
     private void Update()
     {
-        Counter -= Time.deltaTime;
-        TimeText.text = "Time : " + Counter.ToString("00");
+        if (Counter <= 0)
+        {
+            Levelmenu.SetActive(true);
+            Counter = 0;
+            LevelScoreText.text = "Score : " + ButtonManager.score.ToString();
+        }
+        else
+        {
+            Counter -= Time.deltaTime;
+            TimeText.text = "Time : " + Counter.ToString("00");
+        }
     }
 }

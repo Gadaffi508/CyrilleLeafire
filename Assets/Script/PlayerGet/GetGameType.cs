@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GetGameType : MonoBehaviour
 {
@@ -29,5 +30,10 @@ public class GetGameType : MonoBehaviour
     public void GetGameTypeStr()
     {
         gametype = PlayerPrefs.GetString("activeObj.name",gametype);
+    }
+
+    public void BackMenuLoad(int Scene›d)
+    {
+        SceneManager.LoadScene(Scene›d);
     }
 }
