@@ -4,13 +4,26 @@ using UnityEngine;
 
 public class GetGameType : MonoBehaviour
 {
+    public GameObject LevelFirst;
+    public GameObject SecondFirst;
+
     string gametype;
 
     private void Start()
     {
         GetGameTypeStr();
 
-        Debug.Log(gametype);
+        if (gametype == "BG1")
+        {
+            LevelFirst.SetActive(true);
+            SecondFirst.SetActive(false);
+        }
+
+        if (gametype == "BG1.5")
+        {
+            SecondFirst.SetActive(true);
+            LevelFirst.SetActive(false);
+        }
     }
 
     public void GetGameTypeStr()

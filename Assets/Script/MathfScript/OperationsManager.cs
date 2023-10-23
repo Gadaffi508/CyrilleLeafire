@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Account : MonoBehaviour
+public class OperationsManager : MonoBehaviour
 {
     public Text FirstNumberObj;
     public Text SecondNumberObj;
@@ -73,7 +73,9 @@ public class Account : MonoBehaviour
 
         CurrentNumber = result;
 
-        CurrentText.text = CurrentNumber.ToString();
+        CurrentNumberObj.text = CurrentNumber.ToString();
+
+        CurrentText.text = selectedOperation.ToString();
     }
 
     private void Update()
