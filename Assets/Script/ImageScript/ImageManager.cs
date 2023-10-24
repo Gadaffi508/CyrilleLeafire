@@ -34,7 +34,7 @@ public class ImageManager : MonoBehaviour
         if (selectImageManager.index == 1) { selectImageManager.firstÝd = CardÝd; selectImageManager.FirstObj = this.gameObject; }
         if (selectImageManager.index == 2) selectImageManager.SecondÝd = CardÝd;
 
-        if (selectImageManager.firstÝd == selectImageManager.SecondÝd) Debug.Log("true");
+        if (selectImageManager.firstÝd == selectImageManager.SecondÝd) selectImageManager.trueAnswer++;
         if(selectImageManager.firstÝd != selectImageManager.SecondÝd && selectImageManager.index != 1) StartCoroutine(BackRotateImage());
 
         if(selectImageManager.index == 2) selectImageManager.index = 0;
@@ -42,7 +42,7 @@ public class ImageManager : MonoBehaviour
         while (RotateTime > Rtime)
         {
             Rtime += Time.deltaTime;
-            ImageRectTransform.Rotate(Vector3.up);
+            ImageRectTransform.Rotate(Vector3.up * Time.deltaTime * 100);
             yield return null;
         }
         ImageRectTransform.rotation = Quaternion.Euler(0,180, 0);
@@ -64,7 +64,7 @@ public class ImageManager : MonoBehaviour
         while (RotateTime > Rtime)
         {
             Rtime += Time.deltaTime;
-            ImageRectTransform.Rotate(Vector3.up);
+            ImageRectTransform.Rotate(Vector3.up * Time.deltaTime * 100);
             selectImageManager.FirstObj.GetComponent<ImageManager>().ImageRectTransform.Rotate(Vector3.up);
             yield return null;
         }

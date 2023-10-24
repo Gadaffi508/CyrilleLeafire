@@ -11,7 +11,7 @@ public class SelectImageManager : MonoBehaviour
     public int index;
 
     public Transform gridParent;
-
+    public int trueAnswer = 0;
     public GameObject FinishedPanel;
 
     private void Start()
@@ -40,6 +40,14 @@ public class SelectImageManager : MonoBehaviour
         for (int i = 0; i < childCount; i++)
         {
             children[i].SetSiblingIndex(i);
+        }
+    }
+
+    private void Update()
+    {
+        if (trueAnswer >= 6)
+        {
+            FinishedPanel.SetActive(true);
         }
     }
 }
