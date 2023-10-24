@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GetGameType : MonoBehaviour
 {
+    public string firstlevelname;
     public GameObject LevelFirst;
+    public string secondlevelname;
     public GameObject SecondFirst;
 
     string gametype;
@@ -14,13 +16,13 @@ public class GetGameType : MonoBehaviour
     {
         GetGameTypeStr();
 
-        if (gametype == "BG1")
+        if (gametype == firstlevelname)
         {
             LevelFirst.SetActive(true);
             SecondFirst.SetActive(false);
         }
 
-        if (gametype == "BG1.5")
+        if (gametype == secondlevelname)
         {
             SecondFirst.SetActive(true);
             LevelFirst.SetActive(false);
