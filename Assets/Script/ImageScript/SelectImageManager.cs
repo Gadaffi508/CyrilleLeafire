@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SelectImageManager : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class SelectImageManager : MonoBehaviour
     public Transform gridParent;
     public int trueAnswer = 0;
     public GameObject FinishedPanel;
+
+    public Text TimeText;
+    public float time;
 
     private void Start()
     {
@@ -49,5 +53,8 @@ public class SelectImageManager : MonoBehaviour
         {
             FinishedPanel.SetActive(true);
         }
+
+        time -= Time.deltaTime;
+        TimeText.text = "Time : " + time.ToString("00");
     }
 }
