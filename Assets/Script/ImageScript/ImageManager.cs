@@ -34,7 +34,7 @@ public class ImageManager : MonoBehaviour
         if (selectImageManager.index == 1) { selectImageManager.first›d = Card›d; selectImageManager.FirstObj = this.gameObject; }
         if (selectImageManager.index == 2) selectImageManager.Second›d = Card›d;
 
-        if (selectImageManager.first›d == selectImageManager.Second›d) selectImageManager.trueAnswer++;
+        if (selectImageManager.first›d == selectImageManager.Second›d) { selectImageManager.trueAnswer++; selectImageManager.score += 5; }
         if(selectImageManager.first›d != selectImageManager.Second›d && selectImageManager.index != 1) StartCoroutine(BackRotateImage());
 
         if(selectImageManager.index == 2) selectImageManager.index = 0;

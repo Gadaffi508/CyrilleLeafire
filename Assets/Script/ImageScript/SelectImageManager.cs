@@ -16,7 +16,9 @@ public class SelectImageManager : MonoBehaviour
     public GameObject FinishedPanel;
 
     public Text TimeText;
+    public Text ScoreFinishedText;
     public float time;
+    public int score;
 
     private void Start()
     {
@@ -49,8 +51,11 @@ public class SelectImageManager : MonoBehaviour
 
     private void Update()
     {
-        if (trueAnswer >= 6)
+        if (trueAnswer >= 6 || time <= 0)
         {
+            
+            time = 0;
+            ScoreFinishedText.text = "Score : " + score;
             FinishedPanel.SetActive(true);
         }
 
